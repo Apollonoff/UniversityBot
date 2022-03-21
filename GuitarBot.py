@@ -2,8 +2,15 @@ print("Здравствуйте! Как я могу к вам обращатьс
 name = input("Введите свое имя: ")
 print(f"Здравствуйте, {name}! Это бот по рекомендации гитары по Вашим предпочтениям!")
 print("Чат-бот базируется на рейтингах магазина Музторг\n")
-print("Какую музыку Вы больше предпочитаете?")
 
+genres_count = 0
+while genres_count < 1 or genres_count > 7:  # защищаем от ввода некорректных цифр
+    try:
+        genres_count = int(input('введите кол-во любимых жанров (<=7): '))
+        if genres_count < 1 or genres_count > 7:
+            print('Введите только доступные варианты. Повторите снова')
+    except ValueError:  # ValueError. Исключение, возникающее в случаях, когда в функцию передан аргумент с неподдерживаемым значением
+        print(f'{name}, введите только доступные варианты. Повторите снова')
 
 print("Введите номера жанров в указанном списке\n"
       "1.Джаз\n"
@@ -15,39 +22,36 @@ print("Введите номера жанров в указанном списк
       "7.Кантри и блюграсс")
 
 # пользователь вводит свои любимые жанры
+
 likes = []  # массив выбранных предметов
-while True:
+while len(likes) != genres_count:
     try:
         print("Введите номер и нажмите Enter...")
-        print("Если хотите остановить ввод - введите 0")
         element = int(input())
-        if element != 0:
-            likes.append(element)
-            if element > 7 or element < 0:
-                print(f'{name}, введите только доступные варианты. Повторите снова')
-                likes.remove(element)  # убираем из массива бракованный элемент
+        likes.append(element)
+        if element > 7 or element < 1:
+            print(f'{name}, введите только доступные варианты. Повторите снова')
+            likes.remove(element)  # убираем из массива бракованный элемент
         else:
             print("Отличный выбор!")
-            break
     except ValueError:  # ValueError. Исключение, возникающее в случаях, когда в функцию передан аргумент с неподдерживаемым значением
         print(f'{name}, введите только доступные варианты. Повторите снова')
 
 likes_set = set(likes)  # перегоняем массив в множество
-# # множество помогает избежать повторяющихся элементов3
-
+# # множество помогает избежать повторяющихся элементов
 
 # укрупненные сочения жанров по типу гитары
 classic_set = {1, 2}
 acoustic_set = {6, 7}
 electro_set = {3, 4, 5, 6}
 
-if likes_set.issubset(classic_set):
+if likes_set.issubset(classic_set): #проверяем подмножества
     print("Поздравляю, Вам подходит классическая гитара!")
     print("Назовите свой уровень игры на гитаре\n"
           "Выберите один вариант из списка:\n"
           "1. Начальный уровень\n"
           "2. Средний уровень\n"
-          "3.Высокий уровень")
+          "3. Высокий уровень")
     sector_classic = 0
     while sector_classic < 1 or sector_classic > 3:
         try:
@@ -86,7 +90,7 @@ if acoustic_set.issubset(likes_set):
           "Выберите один вариант из списка:\n"
           "1. Начальный уровень\n"
           "2. Средний уровень\n"
-          "3.Высокий уровень")
+          "3. Высокий уровень")
     sector_acoustic = 0
     while sector_acoustic < 1 or sector_acoustic > 3:
         try:
@@ -126,7 +130,7 @@ if electro_set.issubset(likes_set):
           "Выберите один вариант из списка:\n"
           "1. Начальный уровень\n"
           "2. Средний уровень\n"
-          "3.Высокий уровень")
+          "3. Высокий уровень")
     sector_electro = 0
     while sector_electro < 1 or sector_electro > 3:
         try:
@@ -160,6 +164,8 @@ if electro_set.issubset(likes_set):
               "4.GIBSON LES PAUL TRIBUTE SATIN TOBACCO BURSTK\n"
               "5.IBANEZ RG652AHMFX-NGB PRESTIGE")
 
+if not(electro_set.issubset(likes_set) or acoustic_set.issubset(likes_set) or likes_set.issubset(classic_set)):
+    print(f'{name}, извините, но мы не смогли подобрать вам подходящий жанр, попробуйте увеличить выборку')
 #
 # последнее сообщение от бота
 print(f'{name}, спасибо, что воспользовались нашим ботом, желаем Вам удачи!')
