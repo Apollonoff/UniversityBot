@@ -45,15 +45,15 @@ classic_set = {1, 2}
 acoustic_set = {6, 7}
 electro_set = {3, 4, 5, 6}
 
-if likes_set.issubset(classic_set): #проверяем подмножества
+if likes_set.issubset(classic_set):  # проверяем подмножества
     print("Поздравляю, Вам подходит классическая гитара!")
     print("Назовите свой уровень игры на гитаре\n"
           "Выберите один вариант из списка:\n"
           "1. Начальный уровень\n"
           "2. Средний уровень\n"
           "3. Высокий уровень")
-    sector_classic = 0
-    while sector_classic < 1 or sector_classic > 3:
+    sector_classic = 0 #присваиваем сектору значение 0
+    while sector_classic < 1 or sector_classic > 3:  # проверка 'на дурака'
         try:
             sector_classic = int(input("Введите номер:"))
             if sector_classic < 1 or sector_classic > 3:
@@ -69,13 +69,14 @@ if likes_set.issubset(classic_set): #проверяем подмножества
               "4.ROCKDALE CLASSIC LIFE SB\n"
               "5.FABIO FB3410 BLS")
     elif sector_classic == 2:
-        print("Вы уже успели серьезно изучить игру на гитаре и хотите инструмент, позволяющий сыграть все, что Вашей душе угодно!\n"
-              "Вот список гитар, которые идеально Вам подойдут:\n"
-              "1.ROCKDALE MODERN CLASSIC 100-SB\n"
-              "2.FENDER ESC-105 CLASSIC\n"
-              "3.CORT CLASSIC SERIES\n"
-              "4.FLIGHT C-120 NA 1/2\n"
-              "5.BARCELONA CG36BK 3/4")
+        print(
+            "Вы уже успели серьезно изучить игру на гитаре и хотите инструмент, позволяющий сыграть все, что Вашей душе угодно!\n"
+            "Вот список гитар, которые идеально Вам подойдут:\n"
+            "1.ROCKDALE MODERN CLASSIC 100-SB\n"
+            "2.FENDER ESC-105 CLASSIC\n"
+            "3.CORT CLASSIC SERIES\n"
+            "4.FLIGHT C-120 NA 1/2\n"
+            "5.BARCELONA CG36BK 3/4")
     elif sector_classic == 3:
         print("Вы настоящий гуру игры на классической гитаре и хотите достойный инструмент!\n"
               "Вот список гитар, которые идеально Вам подойдут:\n"
@@ -108,13 +109,14 @@ if acoustic_set.issubset(likes_set):
               "4.COLOMBO LF - 3801 / BK\n"
               "5.ELITARO E4020 VTS")
     elif sector_acoustic == 2:
-        print("Вы уже успели серьезно изучить игру на гитаре и хотите инструмент, позволяющий сыграть все, что Вашей душе угодно!\n"
-              "Вот список гитар, которые идеально Вам подойдут:\n"
-              "1.COLOMBO LF - 3800 / BK\n"
-              "2.COLOMBO LF - 401 CEQ / N\n"
-              "3.MARTINEZ FAW - 701\n"
-              "4.FENDER FA-125 SUNBURST\n"
-              "5.CORT AD810-OP STANDARD")
+        print(
+            "Вы уже успели серьезно изучить игру на гитаре и хотите инструмент, позволяющий сыграть все, что Вашей душе угодно!\n"
+            "Вот список гитар, которые идеально Вам подойдут:\n"
+            "1.COLOMBO LF - 3800 / BK\n"
+            "2.COLOMBO LF - 401 CEQ / N\n"
+            "3.MARTINEZ FAW - 701\n"
+            "4.FENDER FA-125 SUNBURST\n"
+            "5.CORT AD810-OP STANDARD")
     elif sector_acoustic == 3:
         print("Вы настоящий гуру игры на акустической гитаре и хотите достойный инструмент!\n"
               "Вот список гитар, которые идеально Вам подойдут:\n"
@@ -148,13 +150,14 @@ if electro_set.issubset(likes_set):
               "4.IBANEZ GRX40-TFB\n"
               "5.CORT G110-SRD G SERIES")
     elif sector_electro == 2:
-        print("Вы уже успели серьезно изучить игру на гитаре и хотите инструмент, позволяющий сыграть все, что Вашей душе угодно!\n"
-              "Вот список гитар, которые идеально Вам подойдут:\n"
-              "1.JACKSON JS1X DK MINION BLACK\n"
-              "2.IBANEZ GIO GSA60-WNF WALNUT FLAT\n"
-              "3.EPIPHONE Les Paul Standard 60s Iced Tea\n"
-              "4.EPIPHONE LES PAUL STUDIO EBONY\n"
-              "5.JACKSON JS22 DINKY DKA METALLIC BLUE")
+        print(
+            "Вы уже успели серьезно изучить игру на гитаре и хотите инструмент, позволяющий сыграть все, что Вашей душе угодно!\n"
+            "Вот список гитар, которые идеально Вам подойдут:\n"
+            "1.JACKSON JS1X DK MINION BLACK\n"
+            "2.IBANEZ GIO GSA60-WNF WALNUT FLAT\n"
+            "3.EPIPHONE Les Paul Standard 60s Iced Tea\n"
+            "4.EPIPHONE LES PAUL STUDIO EBONY\n"
+            "5.JACKSON JS22 DINKY DKA METALLIC BLUE")
     elif sector_electro == 3:
         print("Вы настоящий гуру игры на электрогитаре и хотите достойный инструмент!\n"
               "Вот список гитар, которые идеально Вам подойдут:\n"
@@ -164,8 +167,7 @@ if electro_set.issubset(likes_set):
               "4.GIBSON LES PAUL TRIBUTE SATIN TOBACCO BURSTK\n"
               "5.IBANEZ RG652AHMFX-NGB PRESTIGE")
 
-if not(electro_set.issubset(likes_set) or acoustic_set.issubset(likes_set) or likes_set.issubset(classic_set)):
+if not (electro_set.issubset(likes_set) or acoustic_set.issubset(likes_set) or likes_set.issubset(classic_set)):
     print(f'{name}, извините, но мы не смогли подобрать вам подходящий жанр, попробуйте увеличить выборку')
-#
 # последнее сообщение от бота
 print(f'{name}, спасибо, что воспользовались нашим ботом, желаем Вам удачи!')
