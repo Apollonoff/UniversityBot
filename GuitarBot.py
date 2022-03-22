@@ -85,7 +85,7 @@ if likes_set.issubset(classic_set):  # проверяем подмножеств
               "3.CORDOBA IBERIA C5 CD\n"
               "4.PEREZ 610 CEDAR\n"
               "5.LAG GLA OC70")
-if acoustic_set.issubset(likes_set):
+if likes_set.issubset(acoustic_set):
     print("Поздравляю, Вам подходит акустическая гитара!")
     print("Назовите свой уровень игры на гитаре\n"
           "Выберите один вариант из списка:\n"
@@ -126,7 +126,7 @@ if acoustic_set.issubset(likes_set):
               "4.FENDER CC-60SCE BLACK\n"
               "5.YAMAHA FG800M NATURAL")
 
-if electro_set.issubset(likes_set):
+if likes_set.issubset(electro_set):
     print("Поздравляю, Вам подходит электрогитара!")
     print("Назовите свой уровень игры на гитаре\n"
           "Выберите один вариант из списка:\n"
@@ -167,7 +167,7 @@ if electro_set.issubset(likes_set):
               "4.GIBSON LES PAUL TRIBUTE SATIN TOBACCO BURSTK\n"
               "5.IBANEZ RG652AHMFX-NGB PRESTIGE")
 
-if not (electro_set.issubset(likes_set) or acoustic_set.issubset(likes_set) or likes_set.issubset(classic_set)):
-    print(f'{name}, извините, но мы не смогли подобрать вам подходящий жанр, попробуйте увеличить выборку')
+if not (likes_set.issubset(electro_set) or likes_set.issubset(acoustic_set) or likes_set.issubset(classic_set)):
+    print(f'{name}, извините, но мы не смогли подобрать вам подходящий жанр, попробуйте уменьшить выборку')
 # последнее сообщение от бота
 print(f'{name}, спасибо, что воспользовались нашим ботом, желаем Вам удачи!')
